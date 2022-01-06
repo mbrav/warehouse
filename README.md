@@ -11,3 +11,4 @@ Warehouse web app
 -   [GreaterWMS](https://github.com/Singosgu/GreaterWMS)
 -   [saleor](https://github.com/saleor/saleor)
 -   [django-cms](https://github.com/django-cms/django-cms)
+-   [Django E-Commerce Tutorial: Wagtail CMS + Snipcart + Tailwind CSS](https://github.com/snipcart/django-ecommerce-wagtail-v3)
