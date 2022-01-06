@@ -7,7 +7,7 @@ license = "GNU"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "^4.0.1"
+wagtail = "^2.15"
 
 [tool.poetry.dev-dependencies]
 
