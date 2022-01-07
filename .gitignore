@@ -101,5 +101,8 @@ config/__pycache__/__init__.cpython-39.pyc
 config/settings.py
 poetry.lock
 
+# Etc.
+bakerydemo/
+
 # Ignore migrations for now
 apps/*/migrations/*

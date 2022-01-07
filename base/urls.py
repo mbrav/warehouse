@@ -39,8 +39,8 @@ if settings.DEBUG:
 
     # Add views for testing 404 and 500 templates
     urlpatterns += [
-        path('test404/', TemplateView.as_view(template_name='core/404.html')),
-        path('test500/', TemplateView.as_view(template_name='core/500.html')),
+        path('test404/', TemplateView.as_view(template_name='base/404.html')),
+        path('test500/', TemplateView.as_view(template_name='base/500.html')),
     ]
 
 urlpatterns = urlpatterns + [
