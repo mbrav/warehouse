@@ -1,6 +1,9 @@
 from django.db import models
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.snippets.models import register_snippet
 
 
+@register_snippet
 class CommodityCategory(models.Model):
 
     name = models.CharField(max_length=60)
@@ -8,6 +11,11 @@ class CommodityCategory(models.Model):
     description = models.TextField(
         blank=True,
     )
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('description'),
+    ]
 
     class Meta:
         verbose_name = 'Commodity Category'
@@ -18,6 +26,7 @@ class CommodityCategory(models.Model):
         return '{}'.format(self.name)
 
 
+@register_snippet
 class Commodity(models.Model):
 
     name = models.CharField(max_length=60)
@@ -46,6 +55,7 @@ class Commodity(models.Model):
         return '{}'.format(self.name)
 
 
+@register_snippet
 class Stock(models.Model):
 
     count = models.IntegerField(
