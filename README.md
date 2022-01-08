@@ -13,3 +13,4 @@ Warehouse web app
 -   [django-cms](https://github.com/django-cms/django-cms)
 -   [Django E-Commerce Tutorial: Wagtail CMS + Snipcart + Tailwind CSS](https://github.com/snipcart/django-ecommerce-wagtail-v3)
 -   [bakerydemo](https://github.com/wagtail/bakerydemo)
+- [django-shop](https://github.com/awesto/django-shop)
