@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Commodity, CommodityCategory, Stock
+from .models import Product, ProductCategory, Stock
 
-admin.site.register(Commodity)
-admin.site.register(CommodityCategory)
+admin.site.register(Product)
+admin.site.register(ProductCategory)
 admin.site.register(Stock)

@@ -1,7 +1,7 @@
 from django.db import models
 
 from apps.customers.models import Customer
-from apps.warehouse.models import Commodity
+from apps.warehouse.models import Product
 
 
 class Payment(models.Model):
@@ -65,18 +65,18 @@ class Payment(models.Model):
         return '#{} – ({})'.format(self.id, self.date)
 
 
-class CommodityOrder(models.Model):
+class ProductOrder(models.Model):
 
-    commodity = models.ForeignKey(
-        Commodity,
-        related_name='commodities',
+    product = models.ForeignKey(
+        Product,
+        related_name='products',
         on_delete=models.CASCADE,
         # unique=True,
     )
 
     payment = models.ForeignKey(
         Payment,
-        related_name='commodity_purchases',
+        related_name='product_purchases',
         on_delete=models.CASCADE,
         # unique=True,
     )
@@ -96,8 +96,8 @@ class CommodityOrder(models.Model):
         return self.payment.date
 
     class Meta:
-        verbose_name = 'Commodity Order'
-        verbose_name_plural = 'Commodity Orders'
+        verbose_name = 'Product Order'
+        verbose_name_plural = 'Product Orders'
 
     def __str__(self):
-        return 'Order %s by ' % (self.commodity)
+        return 'Order %s by ' % (self.product)
