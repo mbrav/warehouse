@@ -1,4 +1,5 @@
 from autoslug import AutoSlugField
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from wagtail.admin.edit_handlers import (FieldPanel, FieldRowPanel,
                                          MultiFieldPanel)
@@ -18,7 +19,7 @@ class ProductCategory(models.Model):
         editable=False)
     parent = models.ForeignKey(
         'self',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='children',
         null=True,
         blank=True)
@@ -75,17 +76,47 @@ class Product(models.Model):
         decimal_places=2,
         max_digits=10,
         blank=True,
+        help_text='Product Price',
     )
 
-    description = models.TextField()
+    din = models.IntegerField(
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(99999)],
+        default=0,
+        blank=True,
+        help_text='DIN standard',
+    )
+
+    iso_ts = models.CharField(
+        max_length=20,
+        blank=True,
+        help_text='ISO standard',
+    )
+
+    iso_ts_en = models.CharField(
+        max_length=20,
+        blank=True,
+        help_text='ISO standard En',
+    )
+
+    description = models.TextField(
+        blank=True,
+        help_text='Description of product',
+    )
 
     panels = [
         MultiFieldPanel([
             FieldRowPanel([
                 FieldPanel('name', classname="col8"),
                 FieldPanel('price', classname="col4"),
+            ]),
+            FieldRowPanel([
+                FieldPanel('din', classname="col4"),
+                FieldPanel('iso_ts', classname="col4"),
+                FieldPanel('iso_ts_en', classname="col4"),
             ])
-        ], "Name"),
+        ], "Data"),
         FieldPanel('description'),
         SnippetChooserPanel('category'),
         ImageChooserPanel('image'),
