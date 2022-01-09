@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ self.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">{{ self.title }}</h1>
+    <h2 class="text-center">This is the default page which means,
+        there is no configuration in Wagtail that points to
+        this default page.</h2>
+</div>
+{% endblock %}
