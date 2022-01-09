@@ -5,5 +5,13 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
+<h1>{{ page.title }}</h1>
 {{ page.body|richtext }}
+{% for publication in page.related_publications.all %}
+<li>
+    <a href="{% pageurl publication.detail_page fallback='coming_soon' %}">
+        {{ publication.title }}
+    </a>
+</li>
+{% endfor %}
 {% endblock %}
